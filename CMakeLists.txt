@@ -16,16 +16,15 @@ SET(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIRECTORY})
 
 #### Add External Dependencies ####
 
-add_subdirectory("lib/SFML")
+# Add External Dependencies
+add_subdirectory(lib/SFML)
 
 set(SFML_INCS "lib/SFML/include")
-
 link_directories("${CMAKE_BINARY_DIR}/lib/SFML/lib")
 
-#### Practical 1 ####
+### Practical 1 ###
 
 add_executable(pong main.cpp)
 
-target_include_directories(lab_1 PRIVATE ${SFML_INCS})
-
-target_link_libraries(lab_1 sfml-graphics)
+target_include_directories(pong PRIVATE ${SFML_INCS})
+target_link_libraries(pong PRIVATE sfml-graphics sfml-window sfml-system)
